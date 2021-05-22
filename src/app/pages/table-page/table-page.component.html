@@ -1,0 +1,13 @@
+<div class="container">
+  <table mat-table [dataSource]="dataProvider" *ngIf="visualizer">
+
+    <ng-container [matColumnDef]="column.dataField" *ngFor="let column of visualizer.columns">
+      <th mat-header-cell *matHeaderCellDef> {{ column.header }} </th>
+      <td mat-cell *matCellDef="let element"> {{ element[column.dataField] }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsField; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsField;"></tr>
+
+  </table>
+</div>

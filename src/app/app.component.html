@@ -1,0 +1,30 @@
+<div class="container">
+
+  <div class="position-fixed">
+    <mat-toolbar [color]="barColor">
+      <span>Json Reader</span>
+
+      <span class="spacer"></span>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+
+    </mat-toolbar>
+
+    <nav mat-tab-nav-bar>
+      <a
+        mat-tab-link
+        *ngFor="let link of navLinks"
+        routerLink="{{ link.location }}"
+        routerLinkActive
+        #rla="routerLinkActive"
+        [active]="rla.isActive"
+      >
+        <span>{{ link.label | uppercase }}</span>
+      </a>
+    </nav>
+  </div>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

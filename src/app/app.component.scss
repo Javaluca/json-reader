@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+
+  .position-fixed{
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  }
+
+  main {
+    flex-grow : 1;
+  }
+}
+
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+
+
+.mat-tab-link {
+  height: 30px;
+}
+
+/*main {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 100px;
+}*/
