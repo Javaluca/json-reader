@@ -26,9 +26,9 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@4.1.3 # Deploy su GitHub Pages utilizzando la action https://github.com/JamesIves/github-pages-deploy-action
       with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: dist # The folder the action should deploy.
+          folder: dist/json-reader # The folder the action should deploy.
           clean: true
-          target-folder: ''
+          # target-folder: ''
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # Indichiamo l'accesso token creato per essere autenticati correttamente, prelevandolo dalle Secrets
         #BASE_BRANCH: main
