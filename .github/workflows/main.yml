@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest # La action verrà eseguita su l'ultima versione di Ubuntu
     steps:
-    - name: Checkout
+    - name: Checkout 🛎️
       uses: actions/checkout@v2 # Operazione di checkout standard utile per la CI
       with:
         persist-credentials: false
@@ -17,13 +17,13 @@ jobs:
       uses: actions/setup-node@v1 # Setup di Node utilizzando la action https://github.com/actions/setup-node
       with:
         node-version: '14.16.1' # Nel nostro caso, utilizziamo la versione 10.x di Node
-    - name: Build
+    - name: Build 🔧
       run: | # Esecuzione dei comandi di setup e build del progetto Angular, non dimenticando il parametro --base-href nel comando di build!
          npm install -g @angular/cli
          npm install
          ng build --prod --base-href="/json-reader/"
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v2 # Deploy su GitHub Pages utilizzando la action https://github.com/JamesIves/github-pages-deploy-action
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@4.1.3 # Deploy su GitHub Pages utilizzando la action https://github.com/JamesIves/github-pages-deploy-action
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # Indichiamo l'accesso token creato per essere autenticati correttamente, prelevandolo dalle Secrets
         BASE_BRANCH: main
