@@ -25,7 +25,7 @@ jobs:
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v2 # Deploy su GitHub Pages utilizzando la action https://github.com/JamesIves/github-pages-deploy-action
       env:
-        ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Indichiamo l'accesso token creato per essere autenticati correttamente, prelevandolo dalle Secrets
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # Indichiamo l'accesso token creato per essere autenticati correttamente, prelevandolo dalle Secrets
         BASE_BRANCH: main
         BRANCH: gh-pages # Il branch che contiene il progetto pubblicato sulle GitHub Pages
         FOLDER: dist # Folder dove è stata eseguita la build del nostro progetto Angular
