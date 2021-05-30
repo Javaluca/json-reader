@@ -1,0 +1,28 @@
+<!-- oscuratore -->
+<div class="dialog_scrim" *ngIf="openMenu">
+</div>
+
+
+<button mat-fab color="primary" class="main-button" matRipple (click)="clickMain($event)">
+  <mat-icon *ngIf="!openMenu">{{ options.main.icon }}</mat-icon>
+  <mat-icon *ngIf="openMenu">close</mat-icon>
+</button>
+
+<ng-container *ngIf="options.children && openMenu">
+  <ol>
+
+    <ng-container *ngFor="let item of options.children">
+      <li>
+        <!-- menu button -->
+        <button mat-mini-fab matRipple
+          class="action-button one mat-elevation-z8"
+          color="basic" [matTooltip]="item.label || 'ciaone'" matTooltipPosition="before"
+          (click)="clickButton($event, item)">
+          <i class="material-icons">{{ item.icon }}</i>
+        </button>
+      </li>
+    </ng-container>
+
+  </ol>
+</ng-container>
+

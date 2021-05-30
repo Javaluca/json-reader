@@ -20,7 +20,7 @@ export class Model2VisualizerService {
     return ret;
   }
 
-  build(model: any[]): Visualizer | undefined {
+  build(model: any[]): Visualizer {
     if (!model || !Array.isArray(model) || model.length === 0) {
       return Model2VisualizerService.basicVisualizer();
     }

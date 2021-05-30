@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UiSupportService } from './services/ui-support.service';
 
 @Component({
@@ -16,9 +17,15 @@ export class AppComponent {
     { location: '/table', label: 'Table', icon: 'work' }
   ];
 
-  constructor(private uiSupportService: UiSupportService) {
+  constructor(private uiSupportService: UiSupportService, private router: Router) {
     this.uiSupportService.jsonEventEmitter.subscribe(
-      event => this._color = event.error ? 'warn': 'primary'
+      event => {
+        if (event.error) {
+          this._color = 'warn'
+        } else {
+          this._color = 'primary'
+        }
+      }
     );
   }
 

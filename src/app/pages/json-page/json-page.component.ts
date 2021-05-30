@@ -6,26 +6,25 @@ import { UiSupportService } from 'src/app/services/ui-support.service';
   templateUrl: './json-page.component.html',
   styleUrls: ['./json-page.component.scss']
 })
-export class JsonPageComponent implements OnInit, OnDestroy {
+export class JsonPageComponent implements OnInit {
 
-  private _textInput: string;
-
-  constructor(private readonly uiSupport: UiSupportService) { }
-
-  ngOnInit(): void {
-    this._textInput = this.uiSupport.textInput || '';
+  constructor(private readonly uiSupport: UiSupportService) {
   }
 
-  ngOnDestroy(): void {
-    this.uiSupport.textInput = this._textInput || '';
+  ngOnInit(): void {
+
   }
 
   set textInput(text: string) {
-    this._textInput = text;
+    this.uiSupport.textInput = text || '';
   }
 
   get textInput(): string {
-    return this._textInput;
+    return this.uiSupport.textInput || '';
+  }
+
+  clickRun(event: MouseEvent) {
+    this.uiSupport.sendText(this.textInput);
   }
 
 }
